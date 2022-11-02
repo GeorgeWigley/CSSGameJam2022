@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel() 
     {
         currentLevel++;
-        StartCoroutine(LoadYourAsyncScene(levels[currentLevel]));
+        StartCoroutine(LoadASceneAsync(levels[currentLevel]));
 
     }
 

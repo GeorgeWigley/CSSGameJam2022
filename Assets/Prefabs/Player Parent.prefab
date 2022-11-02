@@ -122,6 +122,18 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 3966797665332654108}
+    - target: {fileID: 8502247071342582968, guid: 2f4200cb34c1e4ce499c7de3d7c62fc4, type: 3}
+      propertyPath: minAngle
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502247071342582968, guid: 2f4200cb34c1e4ce499c7de3d7c62fc4, type: 3}
+      propertyPath: minDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502247071342582968, guid: 2f4200cb34c1e4ce499c7de3d7c62fc4, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 8502247071342582971, guid: 2f4200cb34c1e4ce499c7de3d7c62fc4, type: 3}
       propertyPath: m_RootOrder
       value: 1

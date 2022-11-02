@@ -102,3 +102,8 @@ MonoBehaviour:
   minAngle: -80
   maxAngle: 80
   sensitivity: 1000
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  collisionBuffer: 1
+  minDistance: 2

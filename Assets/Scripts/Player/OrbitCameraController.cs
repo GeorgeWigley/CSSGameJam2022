@@ -24,19 +24,19 @@ public class OrbitCameraController : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update() 
+    private void LateUpdate() 
     {
         xAngle += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         xAngle = Mathf.Clamp(xAngle, minAngle, maxAngle);
         yAngle += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
 
         float currentDistance = distance;
+        transform.localEulerAngles = new Vector3(xAngle, yAngle, 0);
         Vector3 newPos = parent.position + transform.forward * -distance;
         if (Physics.Linecast(parent.position + transform.forward * -minDistance, newPos, out RaycastHit hit, collisionMask))
         {
             currentDistance = hit.distance - collisionBuffer;
         }
         transform.position = parent.position + transform.forward * -currentDistance;
-        transform.localEulerAngles = new Vector3(xAngle, yAngle, 0);
     }
 }

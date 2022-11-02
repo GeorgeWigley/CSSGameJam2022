@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1451966101626732083}
   - component: {fileID: 3887622432709179729}
   - component: {fileID: 7900077765690991230}
+  - component: {fileID: 1587340895}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -112,6 +113,29 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &1587340895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852192718143674730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b5cec3afbc64c95bf4b414ab8439ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  movementSpeed: 15000
+  strafeSpeed: 15000
+  linearDrag: 12
+  footHeight: 0.95
+  checkDistance: 0.1
+  maxVelocityJumpThreshold: 5
+  jumpSpeed: 400
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 51

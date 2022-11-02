@@ -10,6 +10,11 @@ public class OrbitCameraController : MonoBehaviour
     [SerializeField] private float maxAngle = 80;
     [SerializeField] private float sensitivity = 1;
 
+    [Header("Collisions")]
+    [SerializeField] private LayerMask collisionMask;
+    [SerializeField] private float collisionBuffer = 1;
+    [SerializeField] private float minDistance = 2;
+
     private float xAngle;
     private float yAngle;
 
@@ -24,7 +29,14 @@ public class OrbitCameraController : MonoBehaviour
         xAngle += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
         xAngle = Mathf.Clamp(xAngle, minAngle, maxAngle);
         yAngle += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+
+        float currentDistance = distance;
+        Vector3 newPos = parent.position + transform.forward * -distance;
+        if (Physics.Linecast(parent.position + transform.forward * -minDistance, newPos, out RaycastHit hit, collisionMask))
+        {
+            currentDistance = hit.distance - collisionBuffer;
+        }
+        transform.position = parent.position + transform.forward * -currentDistance;
         transform.localEulerAngles = new Vector3(xAngle, yAngle, 0);
-        transform.position = parent.position + transform.forward * -distance;
     }
 }

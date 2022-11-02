@@ -44,6 +44,18 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 340662312588898235}
+    - target: {fileID: 1587340895, guid: b1e65b26ea3924bb2b8b51ae269ae45d, type: 3}
+      propertyPath: jumpSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587340895, guid: b1e65b26ea3924bb2b8b51ae269ae45d, type: 3}
+      propertyPath: strafeSpeed
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587340895, guid: b1e65b26ea3924bb2b8b51ae269ae45d, type: 3}
+      propertyPath: movementSpeed
+      value: 12000
+      objectReference: {fileID: 0}
     - target: {fileID: 4852192718143674730, guid: b1e65b26ea3924bb2b8b51ae269ae45d, type: 3}
       propertyPath: m_Name
       value: Player

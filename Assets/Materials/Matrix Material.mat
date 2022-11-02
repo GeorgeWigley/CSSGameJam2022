@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_MatrixEffect
+  m_Name: Matrix Material
   m_Shader: {fileID: 4800000, guid: 5bdebb1753ad94d0296d8418254f77ab, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -27,7 +27,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glossiness: 0.5
-    - _GridSize: 0.5
+    - _GridSize: 0.6
     - _GridWidth: 0.064
     - _Metallic: 0
     - _Offset: 0.92

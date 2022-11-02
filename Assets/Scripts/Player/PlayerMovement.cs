@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        bool isGrounded = Physics.Raycast(transform.position + Vector3.down * footHeight, Vector3.down, 
+            checkDistance, jumpMask);
         Vector3 forwardDirection = cam.forward;
         forwardDirection.y = 0;
         forwardDirection.Normalize();
@@ -43,14 +45,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 jumpVelocity = Vector3.zero;
         if (jumpPressed)
         {
+            
             jumpPressed = false;
-            if (rb.velocity.y <= maxVelocityJumpThreshold && Physics.Raycast(transform.position + Vector3.down * footHeight, Vector3.down, checkDistance, jumpMask))
+            if (rb.velocity.y <= maxVelocityJumpThreshold && isGrounded)
             {
-                    jumpVelocity = Vector3.up * jumpSpeed;
+                jumpVelocity = Vector3.up * jumpSpeed;
                 
             }
         }
-        rb.AddForce((forwardDirection * movementSpeed + horizontalDirection * strafeSpeed) * Time.deltaTime + jumpVelocity);
+
+        float airMultiplier = isGrounded ? 1 : 0.5f;
+        
+        rb.AddForce((forwardDirection * (airMultiplier * movementSpeed) + horizontalDirection * (strafeSpeed * airMultiplier)) * Time.deltaTime + jumpVelocity);
         Vector3 velo = rb.velocity;
         velo.y = 0;
         velo = Vector3.Lerp(velo, Vector3.zero, Time.deltaTime * linearDrag);

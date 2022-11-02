@@ -25,6 +25,9 @@
 # Gradle cache directory
 .gradle/
 
+# Jetbrians cache directory
+.idea/
+
 # Ignore project settings
 Packages/packages-lock.json
 ProjectSettings/*
@@ -61,3 +64,5 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# annoying meta files

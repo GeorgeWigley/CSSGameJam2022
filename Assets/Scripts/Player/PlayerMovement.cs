@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxVelocityJumpThreshold = 5;
     [SerializeField] private float jumpSpeed = 10;
     [SerializeField] private LayerMask jumpMask;
+    [Space]
+    [SerializeField] private Animator animator;
+    [SerializeField] private float moveVelocityThreshold = 10;
 
     private Rigidbody rb;
 
@@ -45,12 +48,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 jumpVelocity = Vector3.zero;
         if (jumpPressed)
         {
-            
+            animator.SetTrigger("jump");
             jumpPressed = false;
             if (rb.velocity.y <= maxVelocityJumpThreshold && isGrounded)
             {
                 jumpVelocity = Vector3.up * jumpSpeed;
-                
             }
         }
 
@@ -60,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 velo = rb.velocity;
         velo.y = 0;
         velo = Vector3.Lerp(velo, Vector3.zero, Time.deltaTime * linearDrag);
+
+        animator.SetBool("moving", velo.sqrMagnitude > moveVelocityThreshold);
         velo.y = rb.velocity.y;
         rb.velocity = velo;
     }
